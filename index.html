@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обитель Ясности — Canary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f6f3ee;
+            --accent-gold: #bfa071;
+            --accent-dark: #3d3d3d;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px 15px;
+            font-family: 'Manrope', sans-serif;
+            color: var(--accent-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .slide-container {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0d9c5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 25px;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+        }
+        .greeting-script {
+            font-family: 'Marck Script', cursive;
+            font-size: 36px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+        .slide-title {
+            font-size: 38px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .logo-main {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+        .order-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-dark);
+            color: var(--bg-color) !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: 1px solid var(--accent-dark);
+        }
+        .order-btn:hover {
+            background-color: transparent;
+            color: var(--accent-dark) !important;
+        }
+        .price-tag {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #cda256;
+            margin: 10px 0;
+        }
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: #fffcf7;
+            border: 1px solid #f0e6d6;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px 10px;
+            text-align: left;
+            border-bottom: 1px solid #f0e6d6;
+            font-size: 15px;
+        }
+        th {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            color: #888;
+            font-size: 13px;
+        }
+        @media (max-width: 400px) {
+            .slide-title { font-size: 30px; }
+            .greeting-script { font-size: 28px; }
+            .price-tag { font-size: 24px; }
+            .order-btn { padding: 12px 15px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container" id="slide1">
+        <div style="text-align: center;">
