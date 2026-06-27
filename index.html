@@ -8,414 +8,215 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
-/* 1. ГЛОБАЛЬНАЯ ЭСТЕТИКА (Influencer / Canary Style) */
+        :root {
+            --bg-color: #f6f3ee;
+            --accent-gold: #bfa071;
+            --accent-dark: #3d3d3d;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
 
-* {
-  box-sizing: border-box;
-}
+        * { box-sizing: border-box; }
 
-body {
-  background-color: #f6f3ee;
-  margin: 0;
-  padding: 0;
-  font-family: 'Manrope', sans-serif;
-  color: #3d3d3d;
-  overflow-x: hidden;
-}
+        body {
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px 0;
+            font-family: 'Manrope', sans-serif;
+            color: var(--accent-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
 
-.slide-container {
-  width: 1280px;
-  height: 720px;
-  background-color: #fff;
-  margin: 20px auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #e0d9c5;
-}
+        .slide-container {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0d9c5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 25px;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+        }
 
-.slide-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('http://googleusercontent.com/image_collection/image_retrieval/16196032436316712403');
-  background-size: cover;
-  opacity: 0.1;
-  z-index: 0;
-}
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin: 0; }
+        
+        .greeting-script {
+            font-family: 'Marck Script', cursive;
+            font-size: 36px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
 
-.slide-container > * {
-  position: relative;
-  z-index: 1;
-}
+        .slide-title {
+            font-size: 38px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-/* 2. ТИПОГРАФИКА */
+        p { font-size: 16px; line-height: 1.6; color: #555; }
 
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-}
+        .logo-main {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
 
-.greeting-script {
-  font-family: 'Marck Script', cursive;
-  font-size: 42px;
-  color: #bfa071;
-  margin-bottom: 10px;
-}
+        .order-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-dark);
+            color: var(--bg-color) !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: 1px solid var(--accent-dark);
+        }
 
-.slide-title {
-  font-size: 58px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-}
+        .order-btn:hover {
+            background-color: transparent;
+            color: var(--accent-dark) !important;
+        }
 
-p, li, td, th {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #555;
-}
+        .price-tag {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #cda256;
+            margin: 10px 0;
+        }
 
-.price-tag {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #cda256;
-}
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
 
-/* ЭСТЕТИЧНЫЕ КНОПКИ ЗАКАЗА */
-.order-btn {
-  display: inline-block;
-  background-color: #3d3d3d;
-  color: #f6f3ee !important;
-  text-decoration: none;
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 12px 28px;
-  border-radius: 50px;
-  margin-top: 15px;
-  transition: all 0.3s ease;
-  border: 1px solid #3d3d3d;
-}
+        .service-card {
+            background: #fffcf7;
+            border: 1px solid #f0e6d6;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
 
-.order-btn:hover {
-  background-color: transparent;
-  color: #3d3d3d !important;
-}
-
-/* ЛЕЙАУТЫ */
-.content-area {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 100px 60px 100px;
-}
-
-.main-title-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  height: 100%;
-  width: 100%;
-}
-
-.title-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 100px;
-  background-color: #fdfaf5;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fffcf7;
-}
-
-.logo-container img {
-  max-width: 450px;
-  max-height: 600px;
-  object-fit: contain;
-}
-
-.section-sage-layout {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #cad0c2;
-  text-align: center;
-}
-
-.section-sage-layout h2 { font-size: 80px; margin-bottom: 20px; }
-.section-sage-layout p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 32px; color: #4a4a4a; }
-
-.split-layout {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.divider-box {
-  border-right: 1px solid #f0e6d6;
-  padding-right: 50px;
-  text-align: center;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  width: 100%;
-}
-
-.service-tile {
-  background: #fff;
-  border: 1px solid #f0e6d6;
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.service-tile h4 { font-size: 24px; margin-bottom: 10px; }
-
-.table-wrapper {
-  width: 100%;
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 25px;
-  text-align: left;
-  border-bottom: 1px solid #f0e6d6;
-}
-
-th {
-  background-color: #fdfaf5;
-  color: #888;
-  font-family: 'Playfair Display';
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-.palette-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15px;
-  display: flex;
-}
-.p1 { background: #eecf94; flex: 1; }
-.p2 { background: #dcb36c; flex: 1; }
-.p3 { background: #fdfaf5; flex: 1; }
-.p4 { background: #cda256; flex: 1; }
-.p5 { background: #3d3d3d; flex: 1; }
-
+        .table-wrapper { overflow-x: auto; width: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px 10px; text-align: left; border-bottom: 1px solid #f0e6d6; font-size: 15px; }
+        th { font-family: 'Playfair Display'; text-transform: uppercase; color: #888; font-size: 13px; }
     </style>
 </head>
 <body>
 
 <div class="slide-container" id="slide1">
-    <div class="main-title-layout">
-        <div class="title-content">
-            <p class="greeting-script">hey + welcome!</p>
-            <h1 class="slide-title">Мои услуги</h1>
-            <p style="max-width: 550px;">Премиальное пространство для тех, кто выбирает глубокое самопознание и осознанность.</p>
-        </div>
-        <div class="logo-container">
-            <img src="IMG_1377.PNG" alt="Canary Logo Original">
-        </div>
-    </div>
-    <div class="palette-bar">
-        <div class="p1"></div><div class="p2"></div><div class="p3"></div><div class="p4"></div><div class="p5"></div>
+    <div style="text-align: center;">
+        <img src="IMG_1377.PNG" alt="Canary Logo" class="logo-main">
+        <p class="greeting-script">hey + welcome!</p>
+        <h1 class="slide-title">Мои услуги</h1>
+        <p>Премиальное пространство для тех, кто выбирает глубокое самопознание и осознанность.</p>
     </div>
 </div>
 
-<div class="slide-container" id="slide2">
-    <div class="section-sage-layout">
-        <h2>Путь трансформации</h2>
-        <p>Пространство для тех, кто выбирает самопознание</p>
+<div class="slide-container" id="slide2" style="background-color: #cad0c2; border: none;">
+    <div style="text-align: center; color: #4a4a4a;">
+        <h2 style="font-size: 42px; margin-bottom: 10px;">Путь к себе</h2>
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #a3814f;">Эстетика. Осознанность. Гармония.</p>
+        <p>Глубокий анализ себя, своих жизненных циклов и внутреннего потенциала через Цифровую Психологию и символический язык чисел.</p>
     </div>
 </div>
 
 <div class="slide-container" id="slide3">
-    <div class="content-area">
-        <div class="split-layout">
-            <div class="divider-box">
-                <div class="greeting-script" style="font-size: 52px;">Добро пожаловать!</div>
-            </div>
-            <div>
-                <h3 style="font-size: 38px; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 1px;">ПУТЬ К СЕБЕ</h3>
-                <p>Пространство для тех, кто выбирает самопознание. Глубокий анализ себя, своих жизненных циклов и внутреннего потенциала через Цифровую Психологию, систему И Цзин и символический язык чисел.</p>
-                <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; color: #a3814f; margin-top: 30px;">
-                    Эстетика. Осознанность. Гармония.<br>Искусство понимать себя глубже.
-                </p>
-            </div>
+    <h2 class="slide-title">Экспресс-услуги</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h4>Прогноз дня</h4>
+            <p style="font-size: 14px; margin: 5px 0;">Прогноз под дату и событие</p>
+            <div class="price-tag">1 000 ₽</div>
+            <a href="https://t.me/sun_canary?text=Хочу%20Прогноз%20дня" class="order-btn">Заказать</a>
+        </div>
+        <div class="service-card">
+            <h4>Благоприятные даты</h4>
+            <p style="font-size: 14px; margin: 5px 0;">Подбор лучшего времени</p>
+            <div class="price-tag">2 500 ₽</div>
+            <a href="https://t.me/sun_canary?text=Хочу%20Подбор%20дат" class="order-btn">Заказать</a>
+        </div>
+        <div class="service-card">
+            <h4>Совместимость</h4>
+            <p style="font-size: 14px; margin: 5px 0;">Короткий разбор (30-60 мин)</p>
+            <div class="price-tag">2 500 ₽</div>
+            <a href="https://t.me/sun_canary?text=Хочу%20разбор%20Совместимости" class="order-btn">Заказать</a>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide4">
-    <h2 class="slide-title" style="padding: 60px 100px 0;">Экспресс-услуги</h2>
-    <div class="content-area">
-        <div class="services-grid">
-            <div class="service-tile">
-                <div>
-                    <h4>Прогноз дня</h4>
-                    <p style="font-size: 16px; margin-bottom: 15px;">Прогноз под дату и событие</p>
-                </div>
-                <div>
-                    <div class="price-tag">1 000 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20услугу:%20Прогноз%20дня" target="_blank" class="order-btn">Заказать</a>
-                </div>
-            </div>
-            <div class="service-tile">
-                <div>
-                    <h4>Благоприятные даты</h4>
-                    <p style="font-size: 16px; margin-bottom: 15px;">Подбор лучшего времени для события</p>
-                </div>
-                <div>
-                    <div class="price-tag">2 500 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20услугу:%20Подбор%20благоприятных%20дат" target="_blank" class="order-btn">Заказать</a>
-                </div>
-            </div>
-            <div class="service-tile">
-                <div>
-                    <h4>Совместимость</h4>
-                    <p style="font-size: 16px; margin-bottom: 15px;">Короткий разбор партнеров (30-60 минут)</p>
-                </div>
-                <div>
-                    <div class="price-tag">2 500 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20услугу:%20Краткая%20совместимость" target="_blank" class="order-btn">Заказать</a>
-                </div>
-            </div>
-            <div class="service-tile">
-                <div>
-                    <h4>Разбор матрицы</h4>
-                    <p style="font-size: 16px; margin-bottom: 15px;">2 интересующих вопроса кратко (30-60 минут)</p>
-                </div>
-                <div>
-                    <div class="price-tag">2 500 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20услугу:%20Короткий%20разбор%20матрицы" target="_blank" class="order-btn">Заказать</a>
-                </div>
-            </div>
-        </div>
+    <div style="border-left: 4px solid var(--accent-gold); padding-left: 20px;">
+        <p class="greeting-script" style="font-size: 28px;">Индивидуально</p>
+        <h3 style="font-size: 24px; margin-bottom: 15px;">«МОЙ ЖИЗНЕННЫЙ ПЕРИОД»</h3>
+        <p>Помогу понять: почему сейчас в жизни хаос, какой этап вы проходите и на чем важно сосредоточиться.</p>
+        <div class="price-tag">5 000 ₽ <span style="font-size: 16px; color: #999; font-family: 'Manrope'; font-weight: normal;">/ 7 500 ₽ (с прогнозом)</span></div>
+        <a href="https://t.me/sun_canary?text=Интересует%20диагностика%20периода" class="order-btn">Записаться на сессию</a>
     </div>
 </div>
 
 <div class="slide-container" id="slide5">
-    <div class="content-area">
-        <div style="width: 100%; border-left: 5px solid #bfa071; padding-left: 60px;">
-            <p class="greeting-script">Индивидуальная диагностика</p>
-            <h3 style="font-size: 40px; margin-bottom: 30px;">«МОЙ ЖИЗНЕННЫЙ ПЕРИОД ЗДЕСЬ И СЕЙЧАС»</h3>
-            <p style="max-width: 900px;">Помогу понять: почему сейчас в жизни хаос или остановка, какой этап вы проходите и на чем важно сосредоточиться. С прогнозом на предстоящий год или без него.</p>
-            <p style="font-size: 18px; color: #999; margin: 20px 0;">Формат: 1 онлайн встреча 60 – 180 минут</p>
-            <div class="price-tag" style="font-size: 42px; margin-bottom: 20px;">5 000 ₽ <span style="font-size: 20px; color: #888; font-family: 'Manrope'; font-weight: 200;">/ 7 500 ₽ (с прогнозом)</span></div>
-            <a href="https://t.me/sun_canary?text=Здравствуйте!%20Меня%20интересует%20Индивидуальная%20диагностика%20«Жизненный%20период»" target="_blank" class="order-btn">Заказать диагностику</a>
+    <h2 class="slide-title">Отношения и Союзы</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h4 style="color: var(--accent-gold);">Для 2 человек</h4>
+            <p style="font-size: 14px;">Глубокий разбор сценариев любви и причин конфликтов.</p>
+            <div class="price-tag">10 000 ₽</div>
+            <a href="https://t.me/sun_canary?text=Разбор%20для%20двоих" class="order-btn">Заказать</a>
+        </div>
+        <div class="service-card">
+            <h4 style="color: var(--accent-gold);">Коллективы (3+)</h4>
+            <p style="font-size: 14px;">Подбор команды для продуктивной работы и комфорта.</p>
+            <div class="price-tag">от 15 000 ₽</div>
+            <a href="https://t.me/sun_canary?text=Разбор%20коллектива" class="order-btn">Узнать подробнее</a>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide6">
-    <h2 class="slide-title" style="padding: 60px 100px 0;">Отношения и Союзы</h2>
-    <div class="content-area">
-        <div class="services-grid">
-            <div class="service-tile" style="text-align: left; align-items: flex-start;">
-                <div>
-                    <h4 style="color: #a3814f;">Для 2 человек</h4>
-                    <p style="font-size: 17px;">Для тех, кто устал от болезненных отношений и хочет понять причины своих сценариев в любви.</p>
-                </div>
-                <div>
-                    <div class="price-tag" style="margin-top: 25px;">10 000 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20Глубокий%20разбор%20совместимости%20для%202%20человек" target="_blank" class="order-btn">Заказать разбор</a>
-                </div>
-            </div>
-            <div class="service-tile" style="text-align: left; align-items: flex-start;">
-                <div>
-                    <h4 style="color: #a3814f;">Коллективы (3+ чел)</h4>
-                    <p style="font-size: 17px;">Подбор команды для комфортной и продуктивной работы, разбор отношений в группах.</p>
-                </div>
-                <div>
-                    <div class="price-tag" style="margin-top: 25px;">от 15 000 ₽</div>
-                    <a href="https://t.me/sun_canary?text=Здравствуйте!%20Меня%20интересует%20Разбор%20совместимости%20в%20коллективе" target="_blank" class="order-btn">Узнать подробнее</a>
-                </div>
-            </div>
-        </div>
+    <h2 class="slide-title">Итоговый Прайс</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Услуга</th>
+                    <th>Формат</th>
+                    <th>Стоимость</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Прогноз дня</td><td>Расчет</td><td>1 000 ₽</td></tr>
+                <tr><td>Экспресс-разбор</td><td>30–60 мин</td><td>2 500 ₽</td></tr>
+                <tr><td>Диагностика периода</td><td>60–180 мин</td><td>5 000 ₽</td></tr>
+                <tr><td>Реализация</td><td>60–180 мин</td><td>10 000 ₽</td></tr>
+            </tbody>
+        </table>
     </div>
-</div>
-
-<div class="slide-container" id="slide7">
-    <div class="content-area" style="text-align: center;">
-        <p class="greeting-script">Ваше предназначение</p>
-        <h3 style="font-size: 50px; text-transform: uppercase; margin-bottom: 40px; letter-spacing: 3px;">«МОЯ РЕАЛИЗАЦИЯ И ПУТЬ»</h3>
-        <p style="max-width: 800px; margin: 0 auto;">Для тех, кто выбирает направление для реализации, чувствует тупик или хочет понять свои сильные стороны и истинную силу своей матрицы.</p>
-        <div class="price-tag" style="font-size: 48px; margin-top: 40px; margin-bottom: 20px;">10 000 ₽</div>
-        <a href="https://t.me/sun_canary?text=Здравствуйте!%20Хочу%20заказать%20разбор%20«Моя%20реализация%20и%20путь»" target="_blank" class="order-btn" style="padding: 15px 40px;">Записаться на сессию</a>
-    </div>
-</div>
-
-<div class="slide-container" id="slide8">
-    <h2 class="slide-title" style="padding: 60px 100px 0;">Сводный прайс-лист</h2>
-    <div class="content-area">
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Название услуги</th>
-                        <th>Формат</th>
-                        <th>Стоимость</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Прогноз на определенный день</td>
-                        <td>Расчет под событие</td>
-                        <td>1 000 ₽</td>
-                    </tr>
-                    <tr>
-                        <td>Экспресс-разборы</td>
-                        <td>30–60 минут</td>
-                        <td>2 500 ₽</td>
-                    </tr>
-                    <tr>
-                        <td>Диагностика периода</td>
-                        <td>60–180 минут</td>
-                        <td>5 000 / 7 500 ₽</td>
-                    </tr>
-                    <tr>
-                        <td>Реализация / Совместимость</td>
-                        <td>60–180 минут</td>
-                        <td>10 000 ₽</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div style="text-align: center; margin-top: 25px;">
+        <p style="font-family: 'Marck Script'; font-size: 24px; color: var(--accent-gold);">Буду рада видеть вас в Обители Ясности</p>
     </div>
 </div>
 
