@@ -21,7 +21,7 @@
         body {
             background-color: var(--bg-color);
             margin: 0;
-            padding: 20px 0;
+            padding: 20px 0 40px 0;
             font-family: 'Manrope', sans-serif;
             color: var(--accent-dark);
             display: flex;
@@ -124,6 +124,68 @@
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 15px 10px; text-align: left; border-bottom: 1px solid #f0e6d6; font-size: 15px; }
         th { font-family: 'Playfair Display'; text-transform: uppercase; color: #888; font-size: 13px; }
+
+        /* Стиль для важного уведомления (дисклеймера) */
+        .disclaimer-block {
+            background-color: #fffcf7;
+            border-left: 3px solid #dcd1ba;
+            padding: 20px 25px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+        }
+
+        .disclaimer-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #777;
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Мелкое примечание под таблицей */
+        .table-note {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #888;
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Стиль для выделенной ссылки на Тильду внизу */
+        .tilda-block {
+            text-align: center;
+            margin-top: 10px;
+            padding: 25px 20px;
+            background-color: #fffcf7;
+            border: 1px dashed var(--accent-gold);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .tilda-btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #ffffff !important;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(191, 160, 113, 0.2);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .tilda-btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -143,6 +205,10 @@
         <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #a3814f;">Эстетика. Осознанность. Гармония.</p>
         <p>Глубокий анализ себя, своих жизненных циклов и внутреннего потенциала через Цифровую Психологию, Систему И-Цзин (Книгу перемен) и символический язык чисел.</p>
     </div>
+</div>
+
+<div class="disclaimer-block">
+    <p class="disclaimer-text">💡 Материалы и консультации не являются психологической, психотерапевтической или медицинской помощью.</p>
 </div>
 
 <div class="slide-container" id="slide3">
@@ -253,9 +319,19 @@
             </tbody>
         </table>
     </div>
+    
+    <div class="table-note">
+        * Материалы и консультации не являются психологической, психотерапевтической или медицинской помощью.
+    </div>
+
     <div style="text-align: center; margin-top: 25px;">
         <p style="font-family: 'Marck Script'; font-size: 24px; color: var(--accent-gold);">До встречи в пространстве самопознания !</p>
     </div>
+</div>
+
+<div class="tilda-block">
+    <p style="margin: 0 0 10px 0; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.8px;">Дополнительная информация обо мне и моих услугах:</p>
+    <a href="https://digitalpsychoanalysis.tilda.ws" target="_blank" class="tilda-btn">Перейти на Tilda</a>
 </div>
 
 </body>
